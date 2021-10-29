@@ -7,26 +7,26 @@ unsigned long long int nod(unsigned long long int a, unsigned long long int b);
 int main()
 {
 	size_t size1 = 0;
-	scanf_s("%zd", &size1);
+	scanf("%zd", &size1);
 	int* number1 = (int*)calloc(size1, sizeof(int));
-	for (int i = 0; i < size1; i++) {
-		scanf_s("%d", &number1[i]);
+	for (unsigned i = 0; i < size1; i++) {
+		scanf("%d", &number1[i]);
 	}
 
 	size_t size2 = 0;
-	scanf_s("%zd", &size2);
+	scanf("%zd", &size2);
 	int* number2 = (int*)calloc(size1, sizeof(int));
-	for (int i = 0; i < size2; i++) {
-		scanf_s("%d", &number2[i]);
+	for (unsigned i = 0; i < size2; i++) {
+		scanf("%d", &number2[i]);
 	}
 
 	unsigned long long num1 = 0, num2 = 0;
 
-	for (int i = 0; i < size1; i++) {
+	for (unsigned i = 0; i < size1; i++) {
 		num1 += number1[i] * (unsigned long long)pow(10, (double)(size1 - 1 - i));
 	}
 
-	for (int i = 0; i < size2; i++) {
+	for (unsigned i = 0; i < size2; i++) {
 		num2 += number2[i] * (unsigned long long)pow(10, (double)(size2 - 1 - i));
 	}
 
@@ -48,11 +48,11 @@ int main()
 	int* NOD = (int*)calloc(countNumber, sizeof(int));
 
 	size_t exp = countNumber;
-	for (int i = 0; i < countNumber; i++) {
-		NOD[i] = max % (unsigned long long)pow(10, double(--exp));
+	for (unsigned i = 0; i < countNumber; i++) {
+		NOD[i] = (int)(max % (unsigned long long)pow(10, double(--exp)));
 	}
 
-	for (int i = 0; i < countNumber; i++) {
+	for (unsigned i = 0; i < countNumber; i++) {
 		printf("%d ", NOD[i]);
 	}
 }
