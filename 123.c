@@ -47,10 +47,11 @@ int main()
 
 	long long* NOD = (long long*)calloc(countNumber, sizeof(long long));
 
-	int exp = countNumber;
+	int expon = countNumber;
 
 	for (int i = 0; i < countNumber; i++) {
-		NOD[i] = max % (long long)pow(10, double(--exp));
+		NOD[countNumber - 1 - i] = max % 10;
+		max = max / 10;
 	}
 
 	for (int i = 0; i < countNumber; i++) {
