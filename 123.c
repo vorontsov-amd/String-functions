@@ -36,24 +36,25 @@ int main()
 
 	//printf("%llu\n", max);
 
-	size_t countNumber = 0;
+	int countNumber = 0;
 	unsigned long long int maximum = max;
-	for (size_t i = 0; maximum % 10 != 0; i++) {
+	for (unsigned i = 0; maximum % 10 != 0; i++) {
 		maximum = maximum / 10;
 		countNumber++;
 	}
 
-	printf("%zd ", countNumber);
+	printf("%d ", countNumber);
 
-	int* NOD = (int*)calloc(countNumber, sizeof(int));
+	long long* NOD = (long long*)calloc(countNumber, sizeof(long long));
 
-	size_t exp = countNumber;
-	for (unsigned i = 0; i < countNumber; i++) {
-		NOD[i] = (int)(max % (unsigned long long)pow(10, double(--exp)));
+	int exp = countNumber;
+
+	for (int i = 0; i < countNumber; i++) {
+		NOD[i] = max % (long long)pow(10, double(--exp));
 	}
 
-	for (unsigned i = 0; i < countNumber; i++) {
-		printf("%d ", NOD[i]);
+	for (int i = 0; i < countNumber; i++) {
+		printf("%lld ", NOD[i]);
 	}
 }
 
