@@ -167,3 +167,51 @@ char* my_fgets (char* output, int max_number, FILE* stream)
 
     return output;
 }
+
+
+
+int getline(char** str, int len, FILE *fp)
+{
+
+    int lenOfLine = 0;
+
+    int sym = 0;
+
+    while (sym = getc(fp) != '\n')
+    {
+        if (sym == EOF)
+        {
+            sym='\0';
+            break;
+        }
+
+        lenOfLine++;
+    }
+
+    if (lenOfLine == 0)
+    {
+        return -1;
+    }
+
+    if ((*str == NULL) || (len < lenOfLine))
+    {
+        *str = (char*)calloc(lenOfLine, sizeof(char));
+    }
+
+    fseek(fp, -(lenOfLine + 2), SEEK_CUR);
+
+    int num = 0;
+
+    int sym1 = 0;
+
+    while (((sym1 = getc(fp)) != '\n') && (sym1 != '\0'))
+    {
+
+        *(*str + num) = (char)sym1;
+
+        num++;
+    }
+
+    return num;
+
+}
