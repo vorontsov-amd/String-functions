@@ -91,6 +91,7 @@ For example:
 ```
 g++ TestingLibrary.c lib/Library.c -o main
 ```
+This program will run all the tests and compare the results with the built-in library
 
 ### Examples
 
